@@ -1,3 +1,9 @@
 - hostname:
     name: "{{ inventory_hostname }}"
   become: yes
+
+- yum:
+    name:
+      - unzip
+    state: present
+  become: yes
