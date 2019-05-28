@@ -13,3 +13,36 @@
     owner: root
     group: root
   become: yes
+
+# https://learn.hashicorp.com/consul/datacenter-deploy/deployment-guide#configure-systemd
+- copy:
+    src: consul.service
+    dest: /etc/systemd/system/consul.service
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+- file:
+    path: /etc/consul.d
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: yes
+
+- file:
+    path: /opt/consul
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: yes
+
+- template:
+    src: consul.hcl.j2
+    dest: /etc/consul.d/consul.hcl
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
