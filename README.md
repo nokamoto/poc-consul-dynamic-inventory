@@ -1,6 +1,11 @@
 # poc-consul-dynamic-inventory
 
+## consul
 ```bash
-$ vagrant up
-$ open http://192.168.96.51:8500
+$ make vagrant
+```
+
+## consul_io.py
+``` bash
+$ make dynamic
 ```
