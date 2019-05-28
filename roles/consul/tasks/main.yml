@@ -1,0 +1,15 @@
+# https://learn.hashicorp.com/consul/getting-started/install
+- unarchive:
+    src: https://releases.hashicorp.com/consul/1.5.1/consul_1.5.1_linux_amd64.zip
+    dest: /usr/local/src
+    creates: /usr/local/src/consul
+    remote_src: yes
+  become: yes
+
+- file:
+    src: /usr/local/src/consul
+    dest: /usr/local/bin/consul
+    state: link
+    owner: root
+    group: root
+  become: yes
