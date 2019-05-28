@@ -2,6 +2,10 @@
   roles:
     - os
 
-- hosts: consul
+- hosts: server
   roles:
-    - consul
+    - server
+
+- hosts: client
+  roles:
+    - client

@@ -1,0 +1,16 @@
+# https://learn.hashicorp.com/consul/datacenter-deploy/deployment-guide#configure-consul-client-
+
+- copy:
+    src: client.hcl
+    dest: /etc/consul.d/client.hcl
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+- systemd:
+    name: consul
+    state: started
+    enabled: yes
+    daemon_reload: yes
+  become: yes
