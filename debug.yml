@@ -11,7 +11,9 @@
  
         HOST Variables ("hostvars"):
         --------------------------------
-        {{ hostvars | to_nice_json }} 
+        service = {{ service }} 
+        cluster = {{ cluster }}
+        version = {{ version }}
   tasks:
     - debug: 
         msg: "{{ msg.split('\n') }}"
